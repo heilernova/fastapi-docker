@@ -1,12 +1,13 @@
 from fastapi import FastAPI
 from typing import Union
+from app.controllers import acceess
 
 app = FastAPI()
 
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return { "Hello": "World", "name": acceess.saludar() }
 
 
 @app.get("/items/{item_id}")
